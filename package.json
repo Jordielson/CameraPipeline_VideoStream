@@ -1,0 +1,17 @@
+{
+    "name": "fetch",
+    "version": "1.0.0",
+    "main": "src/app.js",
+    "author": "Agemiro, Jord, Victor",
+    "scripts": {
+      "start": "node src/app.js"
+    },
+    "dependencies": {
+      "node-rtsp-stream": "^0.0.9"
+    },
+    "devDependencies": {
+      "eslint": "^7.26.0"
+    },
+    "keywords": [],
+    "description": ""
+}
