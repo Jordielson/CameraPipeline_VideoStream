@@ -1,4 +1,4 @@
-Stream = require("node-rtsp-stream");
+/* Stream = require("node-rtsp-stream");
 stream = new Stream({
   name: "Camera Pipeline",
   // streamUrl: "rtsp://YOUR_IP:PORT",
@@ -11,14 +11,14 @@ stream = new Stream({
     "-b:v": "1000k", // video bit rate
     "-stats": "",
     "-r": 25, // frame rate
-    "-s": "160x280", // video size
+    "-s": "640x480", // video size
     "-bf": 0,
     // transport
-    "-rtsp_transport": "udp",
+    "-rtsp_transport": "tcp",
     // audio
     "-codec:a": "mp2", // audio codec
     "-ar": 44100, // sampling rate (in Hz)(in Hz)
     "-ac": 1, // number of audio channels
     "-b:a": "128k", // audio bit rate
   },
-});
+}); */
