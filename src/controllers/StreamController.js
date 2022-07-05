@@ -1,10 +1,10 @@
 list = [];
 
-exports.post = (req, res, next) => {
+exports.post = async (req, res, next) => {
     if (req.body.url != "" && list.indexOf(req.body.url) == -1) {
         list.push(req.body.url);
         Stream = require("node-rtsp-stream");
-        stream = new Stream({
+        stream = await new Stream({
             name: "Camera Pipeline",
             // streamUrl: "rtsp://YOUR_IP:PORT",
             streamUrl: req.body.url,
@@ -30,22 +30,22 @@ exports.post = (req, res, next) => {
     }
     res.status(201).send();
 };
-  
+
 exports.put = (req, res, next) => {
-    let id = req.params.id;
-    res.status(201).send(`Rota PUT com ID! --> ${id}`);
+  let id = req.params.id;
+  res.status(201).send(`Rota PUT com ID! --> ${id}`);
 };
-  
+
 exports.delete = (req, res, next) => {
-    let id = req.params.id;
-    res.status(200).send(`Rota DELETE com ID! --> ${id}`);
+  let id = req.params.id;
+  res.status(200).send(`Rota DELETE com ID! --> ${id}`);
 };
-  
+
 exports.get = (req, res, next) => {
-    res.status(200).send('Rota GET!');
+  res.status(200).send('Rota GET!');
 };
-  
+
 exports.getById = (req, res, next) => {
-    let id = req.params.id;
-    res.status(200).send(`Rota GET com ID! ${id}`);
+  let id = req.params.id;
+  res.status(200).send(`Rota GET com ID! ${id}`);
 };

@@ -1,4 +1,4 @@
-const UsuarioRoute = require('./UsuarioRoute');
+const UsuarioRoute = require('./StreamRoute');
 module.exports = (app) => {
    UsuarioRoute(app)
 }
