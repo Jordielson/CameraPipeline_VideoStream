@@ -19,7 +19,7 @@ exports.post = async (req, res, next) => {
                 "-s": "640x480", // video size
                 "-bf": 0,
                 // transport
-                "-rtsp_transport": "tcp",
+                "-rtsp_transport": "tcp -i",
                 // audio
                 "-codec:a": "mp2", // audio codec
                 "-ar": 44100, // sampling rate (in Hz)(in Hz)
