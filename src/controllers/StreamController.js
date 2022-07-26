@@ -1,12 +1,13 @@
+Stream = require("node-rtsp-stream");
+
 list = [];
+var stream;
 
 exports.post = async (req, res, next) => {
     if (req.body.url != "" && list.indexOf(req.body.url) == -1) {
         list.push(req.body.url);
-        Stream = require("node-rtsp-stream");
         stream = await new Stream({
             name: "Camera Pipeline",
-            // streamUrl: "rtsp://YOUR_IP:PORT",
             streamUrl: req.body.url,
             // streamUrl: "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mp4",
             wsPort: 7000,
@@ -37,6 +38,8 @@ exports.put = (req, res, next) => {
 };
 
 exports.delete = (req, res, next) => {
+  stream.stop();
+  list = [];
   let id = req.params.id;
   res.status(200).send(`Rota DELETE com ID! --> ${id}`);
 };
