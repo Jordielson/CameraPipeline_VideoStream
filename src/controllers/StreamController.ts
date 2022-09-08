@@ -1,4 +1,5 @@
 import { AbstractController } from "../core/infra/AbstractController";
+import { Ports } from "../core/infra/Ports";
 import { Stream } from "../domain/Stream";
 import { StreamDTO } from "../dto/StreamDTO";
 import StreamMap from "../mapper/StreamMapper";
@@ -39,16 +40,20 @@ export class StreamController extends AbstractController {
     const stream :  Stream | undefined = this.streamList.find((element) => element.id.toString() === id);
     if(stream !== undefined)  {
       stream.props.rtspStream.stop();
+      this.stopStreamPort(stream.props.rtspStream.wsPort);
       this.streamList = this.streamList.filter(item => item !== stream);
     }
     this.ok();
   }
 
   findStreamPort() : number {
-    return 7000;
+    return Ports.getInstance().getPort();
+  }
+
+  stopStreamPort(port : number) {
+    Ports.getInstance().closePort(port);
   }
 }
-
 
 const streamController = new StreamController();
 
