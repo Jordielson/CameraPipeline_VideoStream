@@ -18,7 +18,8 @@ services:
       - "42004:42004"
       - "42005:42005"
     volumes:
-      - ./:/root/app
+      - ./:/root/src
+      - ./:/root/node_modules
     command: >
       sh -c "nodemon"
     networks:
