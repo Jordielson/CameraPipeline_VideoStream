@@ -32,3 +32,8 @@
     ```
     docker-compose up
     ```
+7. To update existing images with docker-compose:
+    ```
+    docker-compose up --force-recreate --build -d
+    docker image prune -f
+    ```
